@@ -1,146 +1,56 @@
 import React, { useContext, useState } from "react";
-import './Cardcontextdis.css'
+import './Cardcontext.css'
 import { Contexto } from "../contexto/Contexto";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup"
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import * as Yup from "yup"
 
-const CardSchema = Yup.object().shape({
-    image: Yup.string()
-    .min(10, "El link de la imagen debe tener al menos 10 caracteres")
-    .max(200, "El link de la imagen debe tener al menos 50 caracteres")
-    .required("El campo imagen es requerida"),
-    titulo: Yup.string()
-    .min(3, "El título debe tener al menos 3 caracteres")
-    .max(20, "El título no debe tener más de 20 caracteres")
-    .required("El campo título es requerido"),
-    descripcion: Yup.string()
-    .min(50, "La descripción debe tener al menos 50 caracteres")
-    .max(200, "La descripción no debe tener más de 200 caracteres")
-    .required("El campo descripción es requerida"),
-    categoria: Yup.string().required("La categoría es requerida"),
-    equipo1: Yup.string()
-    .min(3, "El equipo 1 debe tener al menos 3 caracteres")
-    .max(15, "El equipo 1 no debe tener más de 15 caracteres")
-    .required("El campo equipo 1 es requerido"),
-    equipo2: Yup.string()
-    .min(3, "El equipo 2 debe tener al menos 3 caracteres")
-    .max(15, "El equipo 2 no debe tener más de 15 caracteres")
-    .required("El campo equipo 2 es requerido"),
-    equipo3: Yup.string()
-    .min(3, "El equipo 3 debe tener al menos 3 caracteres")
-    .max(15, "El equipo 3 no debe tener más de 15 caracteres")
-    .required("El campo equipo 3 es requerido"),
+// const CardSchema = Yup.object().shape({
+//     image: Yup.string()
+//     .min(10, "El link de la imagen debe tener al menos 10 caracteres")
+//     .max(200, "El link de la imagen debe tener al menos 50 caracteres")
+//     .required("El campo imagen es requerida"),
+//     titulo: Yup.string()
+//     .min(3, "El título debe tener al menos 3 caracteres")
+//     .max(20, "El título no debe tener más de 20 caracteres")
+//     .required("El campo título es requerido"),
+//     descripcion: Yup.string()
+//     .min(50, "La descripción debe tener al menos 50 caracteres")
+//     .max(200, "La descripción no debe tener más de 200 caracteres")
+//     .required("El campo descripción es requerida"),
+//     categoria: Yup.string().required("La categoría es requerida"),
+//     equipo1: Yup.string()
+//     .min(3, "El equipo 1 debe tener al menos 3 caracteres")
+//     .max(15, "El equipo 1 no debe tener más de 15 caracteres")
+//     .required("El campo equipo 1 es requerido"),
+//     equipo2: Yup.string()
+//     .min(3, "El equipo 2 debe tener al menos 3 caracteres")
+//     .max(15, "El equipo 2 no debe tener más de 15 caracteres")
+//     .required("El campo equipo 2 es requerido"),
+//     equipo3: Yup.string()
+//     .min(3, "El equipo 3 debe tener al menos 3 caracteres")
+//     .max(15, "El equipo 3 no debe tener más de 15 caracteres")
+//     .required("El campo equipo 3 es requerido"),
     
-})
+// })
 
 const CardContext = () => {
 
-// const addCard = (newCard) => {
-//     const updatedCardData = [...cardData, newCard];
-//     setCardData(updatedCardData);
-// };
+const {cardData, setCardData} = useContext(Contexto)
 
-// const [cardData, setCardData] = useState([
-//     {
-//         image:"https://imageneschidas.mx/wp-content/uploads/fotos-del-real-madrid.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Futbol",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://www.lifequestalliance.com/wp-content/uploads/2021/05/2022-Alfa-Romeo-Tonale-spy-for-sale-giulia-how-much-will-the-cost--768x462.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Carro",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://i2.wp.com/consolaytablero.com/wp-content/uploads/2017/12/Domino.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Mesa",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://futbolete.com/wp-content/uploads/2020/11/Seleccion-Colombia-tambien-desmiente-agresiones-en-el-equipo.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Futbol",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://motorshow.com.br/wp-content/uploads/sites/2/2019/03/nota-bugatti-la-voiture-noir-4.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Carro",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://cdn.20m.es/img2/recortes/2017/12/06/595411-736-432.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Mesa",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "https://besthqwallpapers.com/Uploads/12-5-2018/52275/thumb2-club-deportivo-popular-junior-atletico-junior-fc-4k-logo-colombian-football-club.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Futbol",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "http://3.bp.blogspot.com/-nIQl0upTpXU/Ud33_LiajOI/AAAAAAAAAGI/2LdQtALBOfs/s1600/corvette-stingray-detroit-5.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Carro",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-  
-//       {
-//         image: "http://blog.redbus.pe/wp-content/uploads/2020/03/cuatrocartas-5b23ebee3de423003604fb01-scaled.jpg",
-//         titulo: "Titulo",
-//         descripcion: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, impedit! Laudantium ratione culpa ipsum quidem! Error maiores magni accusamus minus illo tenetur. Animi quisquam reiciendis cupiditate facilis dolorum? Consequatur, placeat?",
-//         categoria: "Mesa",
-//         equipo1: "equipo1",
-//         equipo2: "equipo2",
-//         equipo3: "equipo3",
-//       },
-// ]);
+const addCard = (newCard) => {
+    const updatedCardData = [...cardData, newCard];
+    setCardData(updatedCardData);
+};
 
-const initialValues = {
-    image: "",
-    titulo: "",
-    descripcion: "",
-    categoria: "",
-    equipo1: "",
-    equipo2: "",
-    equipo3: "",
-}
+// const initialValues = {
+//     image: "",
+//     titulo: "",
+//     descripcion: "",
+//     categoria: "",
+//     equipo1: "",
+//     equipo2: "",
+//     equipo3: "",
+// }
 
 const [formData, setFormData] = useState({
     image: "",
@@ -162,8 +72,10 @@ const handleInputChange = (event) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData)
+    // console.log(formData)
+
     addCard(formData)
+
     setFormData({
     image: "",
     titulo: "",

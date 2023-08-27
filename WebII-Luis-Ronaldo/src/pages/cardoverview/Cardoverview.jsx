@@ -6,29 +6,29 @@ const Cardoverview = () => {
     {
       image:
         "https://media.vidaenyucatan.com/wp-content/uploads/2019/11/11093354/barbara-zandoval-lPUD8oldJvE-unsplash-scaled.jpg",
-      titulo: "Titulo 1",
-      descripcion: "Descripcion 1",
+      titulo: "Cielo",
+      descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, deleniti illo distinctio pariatur facere qui labore error fugit laborum. Odit voluptas dolorem est quae vel officia nemo asperiores tempora ex!",
     },
     {
       image:
         "https://www.palabrabcs.com/wp-content/uploads/2020/09/Presentan-lluvias.jpg", // Replace with an actual image URL
-      titulo: "Titulo 2",
-      descripcion: "Descripcion 2",
+      titulo: "Lluvia",
+      descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, deleniti illo distinctio pariatur facere qui labore error fugit laborum. Odit voluptas dolorem est quae vel officia nemo asperiores tempora ex!",
     },
     {
       image:
         "http://3.bp.blogspot.com/-vVWjvo7XLe8/UeW-PWgThmI/AAAAAAAAcWU/QiTatlKxwEI/s1600/imagenes-de-paisajes+(5).jpg", // Replace with an actual image URL
-      titulo: "Titulo 3",
-      descripcion: "Descripcion 3",
+      titulo: "Mar",
+      descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, deleniti illo distinctio pariatur facere qui labore error fugit laborum. Odit voluptas dolorem est quae vel officia nemo asperiores tempora ex!",
     },
     {
       image:
         "http://3.bp.blogspot.com/-yttNm725u6Q/UIgpCrY7GWI/AAAAAAAAE78/LI7j8rwE6Ds/s1600/paisaje_otono.jpg", // Replace with an actual image URL
-      titulo: "Titulo 4",
-      descripcion: "Descripcion 4",
+      titulo: "Bosque",
+      descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, deleniti illo distinctio pariatur facere qui labore error fugit laborum. Odit voluptas dolorem est quae vel officia nemo asperiores tempora ex!",
     },
   ];
-
+  
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (index) => {
