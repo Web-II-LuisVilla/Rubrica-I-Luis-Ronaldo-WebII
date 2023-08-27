@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Datos>
-      <div>
+      <div className="css">
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route path="/" element={<Cardoverview />} />

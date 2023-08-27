@@ -1,8 +1,8 @@
 .navbar{
-width: 100%;
-justify-items: center;
-display: grid;
-grid-template-columns: repeat(3,1fr);
-margin-top: 30px; 
-
-}
+    width: 100%;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* margin-top: 30px;  */
+    background-color:  rgba(228, 230, 165, 0.733);
+    }

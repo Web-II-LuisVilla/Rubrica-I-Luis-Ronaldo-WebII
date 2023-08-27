@@ -1,40 +1,40 @@
-import React from 'react'
-import './Footer.css'
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <>
-    <footer className="footer">
+      <footer className="footer">
+        <div className="footer-developed">
+          <h3>Desarrolladores:</h3>
+          <br />
+          <p>
+            Luis Eduardo Villa Ojeda <br /> <br />
+            Ronaldo Suarez Cervera
+          </p>
+        </div>
 
-  <div className="footer-text">
-    <h3>Acerca de nosotros</h3>
-    <p>Este sitio web es propiedad y está operado por 
-      nombre de la empresa. Todos los derechos reservados.</p>
-  </div>
+        <div className="footer-email">
+          <h3>Email:</h3> <br />
+          <p>
+          lvilla8@cuc.edu.co <br /><br /> 
+          rsuarez13@cuc.edu.co
+          </p>
+        </div>
 
-  <div className="footer-social">
-    <h3>Redes</h3>
-    <a href="https://www.facebook.com/[nombre de la empresa]">
-      <i className="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.twitter.com/[nombre de la empresa]">
-      <i className="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/[nombre de la empresa]">
-      <i className="fab fa-instagram"></i>
-    </a>
-  </div>
-
-  <div className="footer-text2">
-    <h3>Servicio al cliente</h3>
-    <p>
-      Este sitio web se proporciona únicamente con fines informativos.
-      La información contenida en este sitio web no constituye asesoramiento
-      legal, médico o profesional. Consulte con un profesional adecuado para
-      obtener asesoramiento específico para su situación.
-    </p>
-  </div>
-</footer>
+        <div className="footer-social">
+          <h3>Redes</h3>
+          <a href="">
+          <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="">
+          <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="">
+          <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </footer>
     </>
   );
 };
